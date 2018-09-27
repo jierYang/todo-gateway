@@ -1,12 +1,26 @@
 server:
   port: 8080
+  context-path: /api
+
+userService:
+  ribbon:
+    listOfServers: localhost:8082,localhost:8083
+
+todoService:
+  ribbon:
+    listOfServers: localhost:8088
+
 zuul:
   routes:
-    todos:
-      url: http://localhost:8082/users
-      path: /api/users/**
-      sensitiveHeaders:
     users:
-      url: http://localhost:8088/todos
-      path: /api/todos/**
+#      url: http://localhost:8082/users
+      path: /users/**
       sensitiveHeaders:
+      serviceId: userService
+      stripPrefix: false
+    todos:
+      #      url: http://localhost:8088/todos
+      path: /todos/**
+      serviceId: todoService
+      sensitiveHeaders:
+      stripPrefix: false
