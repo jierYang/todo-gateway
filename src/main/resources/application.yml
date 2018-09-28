@@ -2,13 +2,13 @@ server:
   port: 8080
   context-path: /api
 
-userService:
-  ribbon:
-    listOfServers: localhost:8082,localhost:8083
-
-todoService:
-  ribbon:
-    listOfServers: localhost:8088
+#userService:
+#  ribbon:
+#    listOfServers: localhost:8082,localhost:8083
+#
+#todoService:
+#  ribbon:
+#    listOfServers: localhost:8088
 
 zuul:
   routes:
