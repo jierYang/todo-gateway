@@ -24,3 +24,5 @@ zuul:
       serviceId: todoService
       sensitiveHeaders:
       stripPrefix: false
+
+
